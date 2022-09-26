@@ -174,33 +174,33 @@ class ItcSimpleSlider {
   //   this._setActiveClass();
   // }
 
-  _moveTo(index, useTransition) {
-    var currentIndex = this._currentIndex;
-    this._direction = index > currentIndex ? 'next' : 'prev';
-    for (var i = 0; i < Math.abs(index - currentIndex); i++) {
-      this._move(useTransition);
-    }
-  }
+  // _moveTo(index, useTransition) {
+  //   var currentIndex = this._currentIndex;
+  //   this._direction = index > currentIndex ? 'next' : 'prev';
+  //   for (var i = 0; i < Math.abs(index - currentIndex); i++) {
+  //     this._move(useTransition);
+  //   }
+  // }
 
-  _autoplay = function (action) {
-    if (!this._config.autoplay) {
-      return;
-    }
-    if (action === 'stop') {
-      clearInterval(this._intervalId);
-      this._intervalId = null;
-      return;
-    }
-    if (this._intervalId === null) {
-      this._intervalId = setInterval(
-        function () {
-          this._direction = 'next';
-          this._move();
-        }.bind(this),
-        this._config.interval,
-      );
-    }
-  };
+  // _autoplay = function (action) {
+  //   if (!this._config.autoplay) {
+  //     return;
+  //   }
+  //   if (action === 'stop') {
+  //     clearInterval(this._intervalId);
+  //     this._intervalId = null;
+  //     return;
+  //   }
+  //   if (this._intervalId === null) {
+  //     this._intervalId = setInterval(
+  //       function () {
+  //         this._direction = 'next';
+  //         this._move();
+  //       }.bind(this),
+  //       this._config.interval,
+  //     );
+  //   }
+  // };
 
   _addIndicators() {
     if (this._el.querySelector(ItcSimpleSlider.SELECTOR_INDICATORS) || !this._config.indicators) {
