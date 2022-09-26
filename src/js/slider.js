@@ -130,49 +130,49 @@ class ItcSimpleSlider {
     );
   }
 
-  _move(useTransition) {
-    var translateX;
-    this._elItems.classList.remove(ItcSimpleSlider.TRANSITION_NONE);
-    if (useTransition === false) {
-      this._elItems.classList.add(ItcSimpleSlider.TRANSITION_NONE);
-    }
-    if (this._direction === 'none') {
-      translateX = this._transform * this._width;
-      this._elItems.style.transform = 'translateX(' + translateX + 'px)';
-      return;
-    }
-    if (!this._config.loop) {
-      var condition = this._currentIndex + 1 >= this._elsItem.length;
-      if (condition && this._direction === 'next') {
-        this._autoplay('stop');
-        return;
-      }
-      if (this._currentIndex <= 0 && this._direction === 'prev') {
-        return;
-      }
-    }
-    var step = this._direction === 'next' ? -1 : 1;
-    var transform = this._transform + step;
-    if (this._direction === 'next') {
-      if (++this._currentIndex > this._elsItem.length - 1) {
-        this._currentIndex -= this._elsItem.length;
-      }
-    } else {
-      if (--this._currentIndex < 0) {
-        this._currentIndex += this._elsItem.length;
-      }
-    }
-    this._transform = transform;
-    this._elItems.dataset.translate = transform;
-    translateX = transform * this._width;
-    this._elItems.style.transform = 'translateX(' + translateX + 'px)';
-    this._elItems.dispatchEvent(
-      new CustomEvent('transition-start', {
-        bubbles: true,
-      }),
-    );
-    this._setActiveClass();
-  }
+  // _move(useTransition) {
+  //   var translateX;
+  //   this._elItems.classList.remove(ItcSimpleSlider.TRANSITION_NONE);
+  //   if (useTransition === false) {
+  //     this._elItems.classList.add(ItcSimpleSlider.TRANSITION_NONE);
+  //   }
+  //   if (this._direction === 'none') {
+  //     translateX = this._transform * this._width;
+  //     this._elItems.style.transform = 'translateX(' + translateX + 'px)';
+  //     return;
+  //   }
+  //   if (!this._config.loop) {
+  //     var condition = this._currentIndex + 1 >= this._elsItem.length;
+  //     if (condition && this._direction === 'next') {
+  //       this._autoplay('stop');
+  //       return;
+  //     }
+  //     if (this._currentIndex <= 0 && this._direction === 'prev') {
+  //       return;
+  //     }
+  //   }
+  //   var step = this._direction === 'next' ? -1 : 1;
+  //   var transform = this._transform + step;
+  //   if (this._direction === 'next') {
+  //     if (++this._currentIndex > this._elsItem.length - 1) {
+  //       this._currentIndex -= this._elsItem.length;
+  //     }
+  //   } else {
+  //     if (--this._currentIndex < 0) {
+  //       this._currentIndex += this._elsItem.length;
+  //     }
+  //   }
+  //   this._transform = transform;
+  //   this._elItems.dataset.translate = transform;
+  //   translateX = transform * this._width;
+  //   this._elItems.style.transform = 'translateX(' + translateX + 'px)';
+  //   this._elItems.dispatchEvent(
+  //     new CustomEvent('transition-start', {
+  //       bubbles: true,
+  //     }),
+  //   );
+  //   this._setActiveClass();
+  // }
 
   // _moveTo(index, useTransition) {
   //   var currentIndex = this._currentIndex;
