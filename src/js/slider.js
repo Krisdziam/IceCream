@@ -216,68 +216,68 @@ class ItcSimpleSlider {
   //   );
   // }
 
-  // _refreshExtremeValues() {
-  //   this._minOrder = parseInt(this._elsItem[0].dataset.order);
-  //   this._maxOrder = this._minOrder;
-  //   this._$itemWithMinOrder = this._elsItem[0];
-  //   this._$itemWithMaxOrder = this._$itemWithMinOrder;
-  //   this._minTranslate = parseInt(this._elsItem[0].dataset.translate);
-  //   this._maxTranslate = this._minTranslate;
-  //   for (var i = 0, length = this._elsItem.length; i < length; i++) {
-  //     var $item = this._elsItem[i];
-  //     var order = parseInt($item.dataset.order);
-  //     if (order < this._minOrder) {
-  //       this._minOrder = order;
-  //       this._$itemWithMinOrder = $item;
-  //       this._minTranslate = parseInt($item.dataset.translate);
-  //     } else if (order > this._maxOrder) {
-  //       this._maxOrder = order;
-  //       this._$itemWithMaxOrder = $item;
-  //       this._maxTranslate = parseInt($item.dataset.translate);
-  //     }
-  //   }
-  // }
+  _refreshExtremeValues() {
+    this._minOrder = parseInt(this._elsItem[0].dataset.order);
+    this._maxOrder = this._minOrder;
+    this._$itemWithMinOrder = this._elsItem[0];
+    this._$itemWithMaxOrder = this._$itemWithMinOrder;
+    this._minTranslate = parseInt(this._elsItem[0].dataset.translate);
+    this._maxTranslate = this._minTranslate;
+    for (var i = 0, length = this._elsItem.length; i < length; i++) {
+      var $item = this._elsItem[i];
+      var order = parseInt($item.dataset.order);
+      if (order < this._minOrder) {
+        this._minOrder = order;
+        this._$itemWithMinOrder = $item;
+        this._minTranslate = parseInt($item.dataset.translate);
+      } else if (order > this._maxOrder) {
+        this._maxOrder = order;
+        this._$itemWithMaxOrder = $item;
+        this._maxTranslate = parseInt($item.dataset.translate);
+      }
+    }
+  }
 
-  // _balancingItems() {
-  //   if (!this._balancingItemsFlag) {
-  //     return;
-  //   }
-  //   var $wrapper = this._elWrapper;
-  //   var wrapperRect = $wrapper.getBoundingClientRect();
-  //   var halfWidthItem = wrapperRect.width / 2;
-  //   var count = this._elsItem.length;
-  //   var translate;
-  //   var clientRect;
-  //   var translateX;
-  //   if (this._direction === 'next') {
-  //     var wrapperLeft = wrapperRect.left;
-  //     var $min = this._$itemWithMinOrder;
-  //     translate = this._minTranslate;
-  //     clientRect = $min.getBoundingClientRect();
-  //     if (clientRect.right < wrapperLeft - halfWidthItem) {
-  //       $min.dataset.order = this._minOrder + count;
-  //       translate += count;
-  //       $min.dataset.translate = translate;
-  //       translateX = translate * this._width;
-  //       $min.style.transform = 'translateX(' + translateX + 'px)';
-  //       this._refreshExtremeValues();
-  //     }
-  //   } else if (this._direction === 'prev') {
-  //     var wrapperRight = wrapperRect.right;
-  //     var $max = this._$itemWithMaxOrder;
-  //     translate = this._maxTranslate;
-  //     clientRect = $max.getBoundingClientRect();
-  //     if (clientRect.left > wrapperRight + halfWidthItem) {
-  //       $max.dataset.order = this._maxOrder - count;
-  //       translate -= count;
-  //       $max.dataset.translate = translate;
-  //       translateX = translate * this._width;
-  //       $max.style.transform = 'translateX(' + translateX + 'px)';
-  //       this._refreshExtremeValues();
-  //     }
-  //   }
-  //   requestAnimationFrame(this._balancingItems.bind(this));
-  // }
+  _balancingItems() {
+    if (!this._balancingItemsFlag) {
+      return;
+    }
+    var $wrapper = this._elWrapper;
+    var wrapperRect = $wrapper.getBoundingClientRect();
+    var halfWidthItem = wrapperRect.width / 2;
+    var count = this._elsItem.length;
+    var translate;
+    var clientRect;
+    var translateX;
+    if (this._direction === 'next') {
+      var wrapperLeft = wrapperRect.left;
+      var $min = this._$itemWithMinOrder;
+      translate = this._minTranslate;
+      clientRect = $min.getBoundingClientRect();
+      if (clientRect.right < wrapperLeft - halfWidthItem) {
+        $min.dataset.order = this._minOrder + count;
+        translate += count;
+        $min.dataset.translate = translate;
+        translateX = translate * this._width;
+        $min.style.transform = 'translateX(' + translateX + 'px)';
+        this._refreshExtremeValues();
+      }
+    } else if (this._direction === 'prev') {
+      var wrapperRight = wrapperRect.right;
+      var $max = this._$itemWithMaxOrder;
+      translate = this._maxTranslate;
+      clientRect = $max.getBoundingClientRect();
+      if (clientRect.left > wrapperRight + halfWidthItem) {
+        $max.dataset.order = this._maxOrder - count;
+        translate -= count;
+        $max.dataset.translate = translate;
+        translateX = translate * this._width;
+        $max.style.transform = 'translateX(' + translateX + 'px)';
+        this._refreshExtremeValues();
+      }
+    }
+    requestAnimationFrame(this._balancingItems.bind(this));
+  }
 
   _addEventListener() {
     var $items = this._elItems;
