@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 class ItcSimpleSlider {
-  static PREFIX = 'slider';
+  // static PREFIX = 'slider';
   // static CLASS_NAME_ITEM = `${ItcSimpleSlider.PREFIX}__item`;
   // static CLASS_NAME_ITEM_ACTIVE = `${ItcSimpleSlider.PREFIX}__item--active`;
   // static CLASS_NAME_ITEMS = `${ItcSimpleSlider.PREFIX}__items`;
