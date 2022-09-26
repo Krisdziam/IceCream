@@ -202,19 +202,19 @@ class ItcSimpleSlider {
   //   }
   // };
 
-  // _addIndicators() {
-  //   if (this._el.querySelector(ItcSimpleSlider.SELECTOR_INDICATORS) || !this._config.indicators) {
-  //     return;
-  //   }
-  //   let html = '';
-  //   for (let i = 0, length = this._elsItem.length; i < length; i++) {
-  //     html += `<li class="${ItcSimpleSlider.CLASS_NAME_INDICATOR}" data-slide-to="${i}"></li>`;
-  //   }
-  //   this._el.insertAdjacentHTML(
-  //     'beforeend',
-  //     `<ol class="${ItcSimpleSlider.CLASS_NAME_INDICATORS}">${html}</ol>`,
-  //   );
-  // }
+  _addIndicators() {
+    if (this._el.querySelector(ItcSimpleSlider.SELECTOR_INDICATORS) || !this._config.indicators) {
+      return;
+    }
+    let html = '';
+    for (let i = 0, length = this._elsItem.length; i < length; i++) {
+      html += `<li class="${ItcSimpleSlider.CLASS_NAME_INDICATOR}" data-slide-to="${i}"></li>`;
+    }
+    this._el.insertAdjacentHTML(
+      'beforeend',
+      `<ol class="${ItcSimpleSlider.CLASS_NAME_INDICATORS}">${html}</ol>`,
+    );
+  }
 
   _refreshExtremeValues() {
     this._minOrder = parseInt(this._elsItem[0].dataset.order);
