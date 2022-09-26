@@ -18,15 +18,15 @@ class ItcSimpleSlider {
   static CLASS_NAME_CONTROL_PREV = `${ItcSimpleSlider.PREFIX}__control--prev`;
   static CLASS_NAME_CONTROL_NEXT = `${ItcSimpleSlider.PREFIX}__control--next`;
   static CLASS_NAME_CONTROL_SHOW = `${ItcSimpleSlider.PREFIX}__control--show`;
-  static SELECTOR_ITEMS = `.${ItcSimpleSlider.CLASS_NAME_ITEMS}`;
-  static SELECTOR_ITEM = `.${ItcSimpleSlider.CLASS_NAME_ITEM}`;
-  static SELECTOR_ITEM_ACTIVE = `.${ItcSimpleSlider.CLASS_NAME_ITEM_ACTIVE}`;
-  static SELECTOR_INDICATOR_ACTIVE = `.${ItcSimpleSlider.CLASS_NAME_INDICATOR_ACTIVE}`;
-  static SELECTOR_INDICATORS = `.${ItcSimpleSlider.CLASS_NAME_INDICATORS}`;
-  static SELECTOR_WRAPPER = `.${ItcSimpleSlider.PREFIX}__wrapper`;
-  static SELECTOR_CONTROL = `.${ItcSimpleSlider.CLASS_NAME_CONTROL}`;
-  static SELECTOR_CONTROL_NEXT = `.${ItcSimpleSlider.CLASS_NAME_CONTROL_NEXT}`;
-  static SELECTOR_CONTROL_PREV = `.${ItcSimpleSlider.CLASS_NAME_CONTROL_PREV}`;
+  // static SELECTOR_ITEMS = `.${ItcSimpleSlider.CLASS_NAME_ITEMS}`;
+  // static SELECTOR_ITEM = `.${ItcSimpleSlider.CLASS_NAME_ITEM}`;
+  // static SELECTOR_ITEM_ACTIVE = `.${ItcSimpleSlider.CLASS_NAME_ITEM_ACTIVE}`;
+  // static SELECTOR_INDICATOR_ACTIVE = `.${ItcSimpleSlider.CLASS_NAME_INDICATOR_ACTIVE}`;
+  // static SELECTOR_INDICATORS = `.${ItcSimpleSlider.CLASS_NAME_INDICATORS}`;
+  // static SELECTOR_WRAPPER = `.${ItcSimpleSlider.PREFIX}__wrapper`;
+  // static SELECTOR_CONTROL = `.${ItcSimpleSlider.CLASS_NAME_CONTROL}`;
+  // static SELECTOR_CONTROL_NEXT = `.${ItcSimpleSlider.CLASS_NAME_CONTROL_NEXT}`;
+  // static SELECTOR_CONTROL_PREV = `.${ItcSimpleSlider.CLASS_NAME_CONTROL_PREV}`;
 
   // static SWIPE_THRESHOLD = 20;
 
