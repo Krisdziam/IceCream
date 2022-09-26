@@ -202,41 +202,41 @@ class ItcSimpleSlider {
   //   }
   // };
 
-  _addIndicators() {
-    if (this._el.querySelector(ItcSimpleSlider.SELECTOR_INDICATORS) || !this._config.indicators) {
-      return;
-    }
-    let html = '';
-    for (let i = 0, length = this._elsItem.length; i < length; i++) {
-      html += `<li class="${ItcSimpleSlider.CLASS_NAME_INDICATOR}" data-slide-to="${i}"></li>`;
-    }
-    this._el.insertAdjacentHTML(
-      'beforeend',
-      `<ol class="${ItcSimpleSlider.CLASS_NAME_INDICATORS}">${html}</ol>`,
-    );
-  }
+  // _addIndicators() {
+  //   if (this._el.querySelector(ItcSimpleSlider.SELECTOR_INDICATORS) || !this._config.indicators) {
+  //     return;
+  //   }
+  //   let html = '';
+  //   for (let i = 0, length = this._elsItem.length; i < length; i++) {
+  //     html += `<li class="${ItcSimpleSlider.CLASS_NAME_INDICATOR}" data-slide-to="${i}"></li>`;
+  //   }
+  //   this._el.insertAdjacentHTML(
+  //     'beforeend',
+  //     `<ol class="${ItcSimpleSlider.CLASS_NAME_INDICATORS}">${html}</ol>`,
+  //   );
+  // }
 
-  _refreshExtremeValues() {
-    this._minOrder = parseInt(this._elsItem[0].dataset.order);
-    this._maxOrder = this._minOrder;
-    this._$itemWithMinOrder = this._elsItem[0];
-    this._$itemWithMaxOrder = this._$itemWithMinOrder;
-    this._minTranslate = parseInt(this._elsItem[0].dataset.translate);
-    this._maxTranslate = this._minTranslate;
-    for (var i = 0, length = this._elsItem.length; i < length; i++) {
-      var $item = this._elsItem[i];
-      var order = parseInt($item.dataset.order);
-      if (order < this._minOrder) {
-        this._minOrder = order;
-        this._$itemWithMinOrder = $item;
-        this._minTranslate = parseInt($item.dataset.translate);
-      } else if (order > this._maxOrder) {
-        this._maxOrder = order;
-        this._$itemWithMaxOrder = $item;
-        this._maxTranslate = parseInt($item.dataset.translate);
-      }
-    }
-  }
+  // _refreshExtremeValues() {
+  //   this._minOrder = parseInt(this._elsItem[0].dataset.order);
+  //   this._maxOrder = this._minOrder;
+  //   this._$itemWithMinOrder = this._elsItem[0];
+  //   this._$itemWithMaxOrder = this._$itemWithMinOrder;
+  //   this._minTranslate = parseInt(this._elsItem[0].dataset.translate);
+  //   this._maxTranslate = this._minTranslate;
+  //   for (var i = 0, length = this._elsItem.length; i < length; i++) {
+  //     var $item = this._elsItem[i];
+  //     var order = parseInt($item.dataset.order);
+  //     if (order < this._minOrder) {
+  //       this._minOrder = order;
+  //       this._$itemWithMinOrder = $item;
+  //       this._minTranslate = parseInt($item.dataset.translate);
+  //     } else if (order > this._maxOrder) {
+  //       this._maxOrder = order;
+  //       this._$itemWithMaxOrder = $item;
+  //       this._maxTranslate = parseInt($item.dataset.translate);
+  //     }
+  //   }
+  // }
 
   _balancingItems() {
     if (!this._balancingItemsFlag) {
