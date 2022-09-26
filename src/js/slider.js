@@ -7,30 +7,30 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 class ItcSimpleSlider {
-  // static PREFIX = 'slider';
-  // static CLASS_NAME_ITEM = `${ItcSimpleSlider.PREFIX}__item`;
-  // static CLASS_NAME_ITEM_ACTIVE = `${ItcSimpleSlider.PREFIX}__item--active`;
-  // static CLASS_NAME_ITEMS = `${ItcSimpleSlider.PREFIX}__items`;
-  // static CLASS_NAME_INDICATOR = `${ItcSimpleSlider.PREFIX}__indicator`;
-  // static CLASS_NAME_INDICATOR_ACTIVE = `${ItcSimpleSlider.PREFIX}__indicator--active`;
-  // static CLASS_NAME_INDICATORS = `${ItcSimpleSlider.PREFIX}__indicators`;
-  // static CLASS_NAME_CONTROL = `${ItcSimpleSlider.PREFIX}__control`;
-  // static CLASS_NAME_CONTROL_PREV = `${ItcSimpleSlider.PREFIX}__control--prev`;
-  // static CLASS_NAME_CONTROL_NEXT = `${ItcSimpleSlider.PREFIX}__control--next`;
-  // static CLASS_NAME_CONTROL_SHOW = `${ItcSimpleSlider.PREFIX}__control--show`;
-  // static SELECTOR_ITEMS = `.${ItcSimpleSlider.CLASS_NAME_ITEMS}`;
-  // static SELECTOR_ITEM = `.${ItcSimpleSlider.CLASS_NAME_ITEM}`;
-  // static SELECTOR_ITEM_ACTIVE = `.${ItcSimpleSlider.CLASS_NAME_ITEM_ACTIVE}`;
-  // static SELECTOR_INDICATOR_ACTIVE = `.${ItcSimpleSlider.CLASS_NAME_INDICATOR_ACTIVE}`;
-  // static SELECTOR_INDICATORS = `.${ItcSimpleSlider.CLASS_NAME_INDICATORS}`;
-  // static SELECTOR_WRAPPER = `.${ItcSimpleSlider.PREFIX}__wrapper`;
-  // static SELECTOR_CONTROL = `.${ItcSimpleSlider.CLASS_NAME_CONTROL}`;
-  // static SELECTOR_CONTROL_NEXT = `.${ItcSimpleSlider.CLASS_NAME_CONTROL_NEXT}`;
-  // static SELECTOR_CONTROL_PREV = `.${ItcSimpleSlider.CLASS_NAME_CONTROL_PREV}`;
+  static PREFIX = 'slider';
+  static CLASS_NAME_ITEM = `${ItcSimpleSlider.PREFIX}__item`;
+  static CLASS_NAME_ITEM_ACTIVE = `${ItcSimpleSlider.PREFIX}__item--active`;
+  static CLASS_NAME_ITEMS = `${ItcSimpleSlider.PREFIX}__items`;
+  static CLASS_NAME_INDICATOR = `${ItcSimpleSlider.PREFIX}__indicator`;
+  static CLASS_NAME_INDICATOR_ACTIVE = `${ItcSimpleSlider.PREFIX}__indicator--active`;
+  static CLASS_NAME_INDICATORS = `${ItcSimpleSlider.PREFIX}__indicators`;
+  static CLASS_NAME_CONTROL = `${ItcSimpleSlider.PREFIX}__control`;
+  static CLASS_NAME_CONTROL_PREV = `${ItcSimpleSlider.PREFIX}__control--prev`;
+  static CLASS_NAME_CONTROL_NEXT = `${ItcSimpleSlider.PREFIX}__control--next`;
+  static CLASS_NAME_CONTROL_SHOW = `${ItcSimpleSlider.PREFIX}__control--show`;
+  static SELECTOR_ITEMS = `.${ItcSimpleSlider.CLASS_NAME_ITEMS}`;
+  static SELECTOR_ITEM = `.${ItcSimpleSlider.CLASS_NAME_ITEM}`;
+  static SELECTOR_ITEM_ACTIVE = `.${ItcSimpleSlider.CLASS_NAME_ITEM_ACTIVE}`;
+  static SELECTOR_INDICATOR_ACTIVE = `.${ItcSimpleSlider.CLASS_NAME_INDICATOR_ACTIVE}`;
+  static SELECTOR_INDICATORS = `.${ItcSimpleSlider.CLASS_NAME_INDICATORS}`;
+  static SELECTOR_WRAPPER = `.${ItcSimpleSlider.PREFIX}__wrapper`;
+  static SELECTOR_CONTROL = `.${ItcSimpleSlider.CLASS_NAME_CONTROL}`;
+  static SELECTOR_CONTROL_NEXT = `.${ItcSimpleSlider.CLASS_NAME_CONTROL_NEXT}`;
+  static SELECTOR_CONTROL_PREV = `.${ItcSimpleSlider.CLASS_NAME_CONTROL_PREV}`;
 
-  // static SWIPE_THRESHOLD = 20;
+  static SWIPE_THRESHOLD = 20;
 
-  // static TRANSITION_NONE = 'transition-none';
+  static TRANSITION_NONE = 'transition-none';
 
   constructor(target, config) {
     this._el = typeof target === 'string' ? document.querySelector(target) : target;
@@ -173,9 +173,6 @@ class ItcSimpleSlider {
     );
     this._setActiveClass();
   }
-
-// //////////////////////////////////////////////////////////////////////////////////////////////
-
   _moveTo(index, useTransition) {
     var currentIndex = this._currentIndex;
     this._direction = index > currentIndex ? 'next' : 'prev';
@@ -183,26 +180,29 @@ class ItcSimpleSlider {
       this._move(useTransition);
     }
   }
+// //////////////////////////////////////////////////////////////////////////////////////////////
 
-  // _autoplay = function (action) {
-  //   if (!this._config.autoplay) {
-  //     return;
-  //   }
-  //   if (action === 'stop') {
-  //     clearInterval(this._intervalId);
-  //     this._intervalId = null;
-  //     return;
-  //   }
-  //   if (this._intervalId === null) {
-  //     this._intervalId = setInterval(
-  //       function () {
-  //         this._direction = 'next';
-  //         this._move();
-  //       }.bind(this),
-  //       this._config.interval,
-  //     );
-  //   }
-  // };
+
+
+  _autoplay = function (action) {
+    if (!this._config.autoplay) {
+      return;
+    }
+    if (action === 'stop') {
+      clearInterval(this._intervalId);
+      this._intervalId = null;
+      return;
+    }
+    if (this._intervalId === null) {
+      this._intervalId = setInterval(
+        function () {
+          this._direction = 'next';
+          this._move();
+        }.bind(this),
+        this._config.interval,
+      );
+    }
+  };
 // ////////////////////////////////////////////////////////////////////////
   _addIndicators() {
     if (this._el.querySelector(ItcSimpleSlider.SELECTOR_INDICATORS) || !this._config.indicators) {
