@@ -184,25 +184,25 @@ class ItcSimpleSlider {
     }
   }
 
-  // _autoplay = function (action) {
-  //   if (!this._config.autoplay) {
-  //     return;
-  //   }
-  //   if (action === 'stop') {
-  //     clearInterval(this._intervalId);
-  //     this._intervalId = null;
-  //     return;
-  //   }
-  //   if (this._intervalId === null) {
-  //     this._intervalId = setInterval(
-  //       function () {
-  //         this._direction = 'next';
-  //         this._move();
-  //       }.bind(this),
-  //       this._config.interval,
-  //     );
-  //   }
-  // };
+  _autoplay =  (action)=> {
+    if (!this._config.autoplay) {
+      return;
+    }
+    if (action === 'stop') {
+      clearInterval(this._intervalId);
+      this._intervalId = null;
+      return;
+    }
+    if (this._intervalId === null) {
+      this._intervalId = setInterval(
+        function () {
+          this._direction = 'next';
+          this._move();
+        }.bind(this),
+        this._config.interval,
+      );
+    }
+  };
 // ////////////////////////////////////////////////////////////////////////
   _addIndicators() {
     if (this._el.querySelector(ItcSimpleSlider.SELECTOR_INDICATORS) || !this._config.indicators) {
