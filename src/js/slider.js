@@ -32,71 +32,71 @@ class ItcSimpleSlider {
 
   // static TRANSITION_NONE = 'transition-none';
 
-  constructor(target, config) {
-    this._el = typeof target === 'string' ? document.querySelector(target) : target;
-    this._elWrapper = this._el.querySelector(ItcSimpleSlider.SELECTOR_WRAPPER);
-    this._elItems = this._el.querySelector(ItcSimpleSlider.SELECTOR_ITEMS);
-    this._elsItem = this._el.querySelectorAll(ItcSimpleSlider.SELECTOR_ITEM);
+  // constructor(target, config) {
+  //   this._el = typeof target === 'string' ? document.querySelector(target) : target;
+  //   this._elWrapper = this._el.querySelector(ItcSimpleSlider.SELECTOR_WRAPPER);
+  //   this._elItems = this._el.querySelector(ItcSimpleSlider.SELECTOR_ITEMS);
+  //   this._elsItem = this._el.querySelectorAll(ItcSimpleSlider.SELECTOR_ITEM);
 
-    this._currentIndex = 0;
+  //   this._currentIndex = 0;
 
-    this._minOrder = 0;
-    this._maxOrder = 0;
-    this._$itemWithMinOrder = null;
-    this._$itemWithMaxOrder = null;
-    this._minTranslate = 0;
-    this._maxTranslate = 0;
+  //   this._minOrder = 0;
+  //   this._maxOrder = 0;
+  //   this._$itemWithMinOrder = null;
+  //   this._$itemWithMaxOrder = null;
+  //   this._minTranslate = 0;
+  //   this._maxTranslate = 0;
 
-    this._direction = 'next';
+  //   this._direction = 'next';
 
-    this._balancingItemsFlag = false;
+  //   this._balancingItemsFlag = false;
 
-    this._transform = 0;
+  //   this._transform = 0;
 
-    this._width = this._elWrapper.getBoundingClientRect().width;
+  //   this._width = this._elWrapper.getBoundingClientRect().width;
 
-    this._supportResizeObserver = typeof window.ResizeObserver !== 'undefined';
+  //   this._supportResizeObserver = typeof window.ResizeObserver !== 'undefined';
 
-    this._hasSwipeState = false;
-    this._swipeStartPosX = 0;
+  //   this._hasSwipeState = false;
+  //   this._swipeStartPosX = 0;
 
-    this._intervalId = null;
+  //   this._intervalId = null;
 
-    const defaultConfig = {
-      autoplay: false,
-      loop: true,
-      indicators: true,
-      interval: 3000,
-      swipe: true,
-    };
-    this._config = Object.assign(defaultConfig, config);
-    this._elItems.dataset.translate = 0;
+  //   const defaultConfig = {
+  //     autoplay: false,
+  //     loop: true,
+  //     indicators: true,
+  //     interval: 3000,
+  //     swipe: true,
+  //   };
+  //   this._config = Object.assign(defaultConfig, config);
+  //   this._elItems.dataset.translate = 0;
 
-    this._elsItem.forEach((item, index) => {
-      item.dataset.order = index;
-      item.dataset.index = index;
-      item.dataset.translate = 0;
-    });
+  //   this._elsItem.forEach((item, index) => {
+  //     item.dataset.order = index;
+  //     item.dataset.index = index;
+  //     item.dataset.translate = 0;
+  //   });
 
-    if (this._config.loop) {
-      var count = this._elsItem.length - 1;
-      var translate = -this._elsItem.length;
-      this._elsItem[count].dataset.order = -1;
-      this._elsItem[count].dataset.translate = -this._elsItem.length;
-      var translateX = translate * this._width;
-      this._elsItem[count].style.transform = 'translateX(' + translateX + 'px)';
-    }
+  //   if (this._config.loop) {
+  //     var count = this._elsItem.length - 1;
+  //     var translate = -this._elsItem.length;
+  //     this._elsItem[count].dataset.order = -1;
+  //     this._elsItem[count].dataset.translate = -this._elsItem.length;
+  //     var translateX = translate * this._width;
+  //     this._elsItem[count].style.transform = 'translateX(' + translateX + 'px)';
+  //   }
 
-    this._addIndicators();
+  //   this._addIndicators();
 
-    this._refreshExtremeValues();
+  //   this._refreshExtremeValues();
 
-    this._setActiveClass();
+  //   this._setActiveClass();
 
-    this._addEventListener();
+  //   this._addEventListener();
 
-    this._autoplay();
-  }
+  //   this._autoplay();
+  // }
 
   _setActiveClass() {
     const elActive = this._el.querySelector(ItcSimpleSlider.SELECTOR_ITEM_ACTIVE);
